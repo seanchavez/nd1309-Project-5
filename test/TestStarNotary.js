@@ -99,10 +99,10 @@ it('lets 2 users exchange stars', async () => {
   const starId2 = 8;
   await instance.createStar('superstar', starId1, { from: user1 });
   await instance.createStar('shootingstar', starId2, { from: user2 });
-  await instance.exchangeStars(starId1, starId2);
+  await instance.exchangeStars(starId1, starId2, { from: user2 });
   assert.equal(
-    `${instance.ownerOf(starId1)}, ${instance.ownerOf(starId2)}`,
-    `${owner2}, ${owner1}`,
+    `${await instance.ownerOf(starId1)}, ${await instance.ownerOf(starId2)}`,
+    `${user2}, ${user1}`,
   );
 });
 
