@@ -14,7 +14,7 @@ contract StarNotary is ERC721, ERC721Metadata {
     // Implement Task 1 Add a name and symbol properties
     // name: Is a short name to your token
     // symbol: Is a short string like 'USD' -> 'American Dollar'
-   constructor(string name, string symbol)
+   constructor(string memory name, string memory symbol)
    ERC721Metadata(name, symbol) public {}
 
     // mapping the Star with the Owner Address
@@ -58,6 +58,7 @@ contract StarNotary is ERC721, ERC721Metadata {
     // Implement Task 1 lookUptokenIdToStarInfo
     function lookUptokenIdToStarInfo (uint _tokenId) public view returns (string memory) {
         //1. You should return the Star saved in tokenIdToStarInfo mapping
+        return tokenIdToStarInfo[_tokenId].name;
     }
 
     // Implement Task 1 Exchange Stars function
