@@ -78,6 +78,7 @@ contract StarNotary is ERC721Metadata {  //, ERC721Metadata {
     function transferStar(address _to1, uint256 _tokenId) public {
         //1. Check if the sender is the ownerOf(_tokenId)
         //2. Use the transferFrom(from, to, tokenId); function to transfer the Star
+        transferFrom(ownerOf(_tokenId), _to1, _tokenId);
     }
 
 }
